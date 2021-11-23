@@ -8,7 +8,6 @@ package bandtec.com.br.totemsoluction;
 import bandtec.com.br.totemsoluction.entity.Usuario;
 import bandtec.com.br.totemsoluction.persistence.UsuarioDao;
 import java.util.Scanner;
-import javax.swing.JOptionPane;
 
 public class LoginPageCli {
 
@@ -17,6 +16,7 @@ public class LoginPageCli {
         String login = "";
         String senha = "";
         UsuarioDao usuarioDao = new UsuarioDao();
+        MaquinaDao maquinaCl = new MaquinaDao();
 
         System.out.println("Bem vindo ao TotemSolutions!");
         System.out.println("\nDigite seu login: ");
@@ -36,6 +36,7 @@ public class LoginPageCli {
             escolha = leitor.nextInt();
             if (escolha == 1) {
                 tela.DetalhesDosHardwares();
+                maquinaCl.
             } else if (escolha == 2) {
                 tela.DetalhesDosProcessos();
             } else {

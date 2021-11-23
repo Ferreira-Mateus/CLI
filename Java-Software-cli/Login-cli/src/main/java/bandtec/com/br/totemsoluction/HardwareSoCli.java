@@ -18,7 +18,7 @@ public class HardwareSoCli {
     
     public void ExibirSo() {
         System.out.println("\n");
-        System.out.println(String.format("----- INFORMAÇÕES DO SISTEMA OPERACIONAL -----"
+        System.out.println(String.format("----- INFORMACOES DO SISTEMA OPERACIONAL -----"
                 + "\nSistema operacional: %s"
                 + "\nFabricante: %s"
                 + "\nArquitetura: %d bits"
@@ -27,5 +27,7 @@ public class HardwareSoCli {
                 looca.getSistema().getFabricante(), looca.getSistema().getArquitetura(),
                 looca.getSistema().getInicializado(), looca.getSistema().getTempoDeAtividade()));
         System.out.println(("Executando como " + (looca.getSistema().getPermissao() ? "root" : "usuário padrão")));
+        
+        
     }
 }

@@ -20,7 +20,7 @@ public class HardwareMemoriaCli {
     
     public void ExibeMemoria() {       
         String memTot = conv.formatarBytes(memoria.getTotal());
-        System.out.println("----- INFORMÇÕES DA MEMÓRIA -----");
+        System.out.println("----- INFORMCOES DA MEMORIA -----");
         
         System.out.print(String.format("Memória em uso: %d", ((memoria.getEmUso() * 100) / memoria.getTotal()) + 1));
         System.out.println("%");

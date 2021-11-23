@@ -18,7 +18,7 @@ public class HardwareProcessadorCli {
     
     public void ExibeProcesso() {
         System.out.println("\n");
-        System.out.println(String.format("----- INFORMAÇÕES PROCESSADOR -----"
+        System.out.println(String.format("----- INFORMACOES PROCESSADOR -----"
                 + "\nFabricante: %s"
                 + "\nNome: %s"
                 + "\nIdentificador: %s"

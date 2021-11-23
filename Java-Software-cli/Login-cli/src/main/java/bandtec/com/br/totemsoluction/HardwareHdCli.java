@@ -32,7 +32,7 @@ public class HardwareHdCli {
 
         System.out.println("\n");
         for (Disco disco : discos) {
-            System.out.println(String.format("----- INFORMAÇÕES HD -----"
+            System.out.println(String.format("----- INFORMACOES HD -----"
                     + "\nNome: %s"
                     + "\nModelo: %s"
                     + "\nSerial: %s"
@@ -61,7 +61,7 @@ public class HardwareHdCli {
             var teste = (disp * 100) / total;
             int valor = (int) teste;
 
-            System.out.println();
+            System.out.println(valor);
         }
     }
 }

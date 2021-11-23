@@ -19,12 +19,15 @@ public class ProcessosTelaInicialCli {
     HardwareProcessadorCli infoProc = new HardwareProcessadorCli();
     HardwareHdCli infoHD = new HardwareHdCli();
     ProcessosCli infoProcessos = new ProcessosCli();
+    Memoria memoriaCli = new Memoria();
+    MaquinaDao maquinaCli = new MaquinaDao();
     
     public void DetalhesDosHardwares() {
         infoMemoria.ExibeMemoria();
         infoSo.ExibirSo();
         infoProc.ExibeProcesso();
         infoHD.ExibeHD();
+        maquinaCli.insertInfoMaquina();
     }
     
     public void DetalhesDosProcessos() {
