@@ -33,6 +33,8 @@ public class LoginPageCli {
         ProcessosTelaInicialCli tela = new ProcessosTelaInicialCli();
 
         Usuario autentificacao = usuarioDao.autentificacaoDeUsuario(usuario);
+        Integer fkEmpresa = usuario.getFkEmpresa();
+        Integer fkMaquina = maquinaCl.buscaDados();
 
         System.out.println("Bem vindo! " + usuario.getLogin());
         do {
@@ -51,7 +53,7 @@ public class LoginPageCli {
 
                     case 2:
                         tela.DetalhesDosProcessos();
-                        processos01.insertProcessosMaquina(looca, 500);
+                        processos01.insertProcessosMaquina(looca, 1);
                         break;
 
                     default:
