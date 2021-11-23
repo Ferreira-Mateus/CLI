@@ -28,7 +28,7 @@ public class ProcessosMaquinaDao extends Dao {
             open();
             try {
                 System.out.println("Realizando registro de totem no banco...");
-                stmt = con.prepareStatement("insert into processosMaquina (fkMaquina, "
+                stmt = con.prepareStatement("Insert into ProcessosMaquina (fkMaquina, "
                         + "processo, pid, usoCPU, usoMemoria, encerrarProcessos, dataProcesso) values (?,?,?,?,?,?,?);");
                 stmt.setInt(1, fkMaquina);
                 stmt.setString(2, processos.get(i).getNome());
@@ -41,7 +41,7 @@ public class ProcessosMaquinaDao extends Dao {
                 stmt.close();
                 System.out.println("Registro realizado com sucesso!");
             } catch (SQLException ex) {
-                System.out.println("Ocorreu um problema no registro - Dados Máquina");
+                System.out.println("Ocorreu um problema no registro - Processos Máquina");
                 ex.printStackTrace();
             } finally {
                 close();
@@ -54,7 +54,7 @@ public class ProcessosMaquinaDao extends Dao {
         List<String> listaProcessos = new ArrayList<>();
         try {
             /*Abertura da conexão com banco de dados*/
-            stmt = con.prepareStatement("select processo from processosMaquina "
+            stmt = con.prepareStatement("select processo from ProcessosMaquina "
                     + "where encerrarProcessos = 1 and fkMaquina = ?;");
             stmt.setInt(1, fkMaquina);
             rs = stmt.executeQuery();
@@ -76,7 +76,7 @@ public class ProcessosMaquinaDao extends Dao {
         open();
         try {
             /*Abertura da conexão com banco de dados*/
-            stmt = con.prepareStatement("delete from processosMaquina "
+            stmt = con.prepareStatement("delete from ProcessosMaquina "
                     + "where fkMaquina=?;");
             stmt.setInt(1, fkMaquina);
             stmt.executeUpdate();
@@ -91,7 +91,7 @@ public class ProcessosMaquinaDao extends Dao {
         open();
         try {
             /*Abertura da conexão com banco de dados*/
-            stmt = con.prepareStatement("delete from processosMaquina "
+            stmt = con.prepareStatement("delete from ProcessosMaquina "
                     + "where processo = ? and fkMaquina =?;");
             stmt.setString(1, processo);
             stmt.setInt(2, fkMaquina);

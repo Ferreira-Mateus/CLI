@@ -6,7 +6,10 @@
 package bandtec.com.br.totemsoluction;
 
 import bandtec.com.br.totemsoluction.entity.Usuario;
+import bandtec.com.br.totemsoluction.persistence.MaquinaDao;
+import bandtec.com.br.totemsoluction.persistence.ProcessosMaquinaDao;
 import bandtec.com.br.totemsoluction.persistence.UsuarioDao;
+import com.github.britooo.looca.api.core.Looca;
 import java.util.Scanner;
 
 public class LoginPageCli {
@@ -17,6 +20,9 @@ public class LoginPageCli {
         String senha = "";
         UsuarioDao usuarioDao = new UsuarioDao();
         MaquinaDao maquinaCl = new MaquinaDao();
+        ProcessosMaquinaDao processos01 = new ProcessosMaquinaDao();
+        Looca looca = new Looca();
+        Boolean repeat = true;
 
         System.out.println("Bem vindo ao TotemSolutions!");
         System.out.println("\nDigite seu login: ");
@@ -25,26 +31,38 @@ public class LoginPageCli {
         senha = leitor.next();
         Usuario usuario = new Usuario(login, senha);
         ProcessosTelaInicialCli tela = new ProcessosTelaInicialCli();
-        Integer escolha = 0;
 
         Usuario autentificacao = usuarioDao.autentificacaoDeUsuario(usuario);
 
-        if (autentificacao != null) {
-            System.out.println("Bem vindo! " + usuario);
-            System.out.println("1 - Detalhes do hardware\n"
-                    + "2 - Detalhes de processos");
-            escolha = leitor.nextInt();
-            if (escolha == 1) {
-                tela.DetalhesDosHardwares();
-                maquinaCl.
-            } else if (escolha == 2) {
-                tela.DetalhesDosProcessos();
+        System.out.println("Bem vindo! " + usuario.getLogin());
+        do {
+            if (autentificacao != null) {
+                System.out.println("\n"
+                        + "1 - Detalhes do hardware\n"
+                        + "2 - Detalhes de processos");
+
+                Integer escolha = leitor.nextInt();
+
+                switch (escolha) {
+                    case 1:
+                        tela.DetalhesDosHardwares();
+                        maquinaCl.insertInfoMaquina(looca, 500);
+                        break;
+
+                    case 2:
+                        tela.DetalhesDosProcessos();
+                        processos01.insertProcessosMaquina(looca, 500);
+                        break;
+
+                    default:
+                        System.out.println("Digite uma opção válida!");
+                        repeat = false;
+                        break;
+                }
             } else {
-                System.out.println("Digite uma opção válida!");
+                System.out.println("Login e/ou senha inválidos");
             }
-        } else {
-            System.out.println("Login e/ou senha inválidos");
-        }
+        } while (repeat);
     }
 
 }

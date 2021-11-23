@@ -16,20 +16,24 @@ import java.util.List;
  * @author Wesley
  */
 public class ProcessosCli {
+
     Looca looca = new Looca();
     MensagensSlack slack = new MensagensSlack();
-    
+
     public void teste() {
         ProcessosGroup processosGroup = looca.getGrupoDeProcessos();
         List<Processo> processos = processosGroup.getProcessos();
 
         String txtFinal = "";
+        Integer limite = 0;
 
         for (Processo processo : processos) {
-
+//            if (limite < 11) {
             txtFinal += "Nome: " + processo.getNome() + "\nPID: " + processo.getPid() + "\n\n";
+//                limite++;
         }
-        System.out.println(txtFinal);
-        //txConteudo.setText("<html><body>processosGroup.<br>noite<br>noite<br>noite<br>noite<br>noite<br>noite<br>noite<br>noite<br>noite<br>noite<br>noite<br>noite<br>noite<br>noite<br>noite<br>noite<br>noite<br>noite<br>noite<br>noite<br>noite<br>noite<br>noite<br>noite<br></body></html>");
     }
+
+//        System.out.println(txtFinal);
+    //txConteudo.setText("<html><body>processosGroup.<br>noite<br>noite<br>noite<br>noite<br>noite<br>noite<br>noite<br>noite<br>noite<br>noite<br>noite<br>noite<br>noite<br>noite<br>noite<br>noite<br>noite<br>noite<br>noite<br>noite<br>noite<br>noite<br>noite<br>noite<br></body></html>");
 }
